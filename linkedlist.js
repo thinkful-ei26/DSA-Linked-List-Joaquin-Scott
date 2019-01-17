@@ -74,3 +74,13 @@ class LinkedList {
     previousNode.next = currNode.next;
   }
 }
+function Main() {
+  let test = new LinkedList();
+  test.insertFirst('Apollo');
+  test.insertFirst('Boomer');
+  test.insertFirst('Hello');
+  test.insertFirst('Husker');
+  test.insertFirst('StarBuck');
+  console.log(test);
+}
+Main();

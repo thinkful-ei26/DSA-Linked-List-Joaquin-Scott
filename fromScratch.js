@@ -63,3 +63,18 @@ class LinkedList {
     previousNode.next = currentNode.next;
   }
 }
+function Main() {
+  let SSL = new LinkedList();
+  //   SSL.insertFirst('Apollo');
+  //   SSL.insertFirst('Boomer');
+  //   SSL.insertFirst('Hello');
+  //   SSL.insertFirst('Husker');
+  //   SSL.insertFirst('StarBuck');
+  //   SSL.insertLast('Tauhida');
+  //   SSL.remove('squirrel');
+  //   SSL.insertFirst({ name: 'Bob', zip: 88888 });
+  SSL.insertFirst(['red', 'white', 'blue']);
+  console.log(JSON.stringify(SSL));
+  //   console.log(SSL);
+}
+Main();
