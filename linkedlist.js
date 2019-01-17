@@ -10,7 +10,7 @@ class LinkedList {
   constructor() {
     this.head = null;
   }
-
+// this.head is the pointer - why not point to null?
   insertFirst(item) {
     this.head = new _Node(item, this.head);
   }
@@ -18,7 +18,7 @@ class LinkedList {
     if (this.head === null) {
       this.insertFirst(item);
     } else {
-      let tempNode = this.head;
+      let tempNode = this.head; // 
       while (tempNode.next !== null) {
         tempNode = tempNode.next;
       }
@@ -48,8 +48,9 @@ class LinkedList {
   }
   remove(item) {
     //if the list is empty
-    if (!this.head) {
-      return null;
+    // this.head ->null so empty, but !this.head -> true, mean populated?
+    if (!this.head) {  //not null evaluates to true, so this line return true if the LL is empty
+      return null; //item not found?
     }
     //if the node to be removed is head, make the next node head
     if (this.head.value === item) {
