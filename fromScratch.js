@@ -15,6 +15,7 @@ class LinkedList {
   insertFirst(item) {
     this.head = new _Node(item, this.head);
   }
+
   insertLast(item) {
     if (this.head === null) {
       this.insertFirst(item);
@@ -26,6 +27,7 @@ class LinkedList {
       tempNode.next = new _Node(item, null);
     }
   }
+
   find(item) {
     let currentNode = this.head;
     if (!this.head) {
@@ -62,19 +64,39 @@ class LinkedList {
     }
     previousNode.next = currentNode.next;
   }
+
+  insertBefore(item, value) {
+    let previous = this.head;
+    let current = this.head;
+
+    //this.find(key);
+    console.log(this.find(value));
+
+
+    // if (this.find(key)) {
+    //   this.head = new _Node(item, current);
+    //   previous = current;
+    //   current = current.next;
+    //   console.log(current, previous);
+    //   //console.log("this.head is ", this.head);
+    // }
+
+  }
+
 }
 function Main() {
   let SSL = new LinkedList();
-  //   SSL.insertFirst('Apollo');
-  //   SSL.insertFirst('Boomer');
-  //   SSL.insertFirst('Hello');
-  //   SSL.insertFirst('Husker');
-  //   SSL.insertFirst('StarBuck');
+  SSL.insertFirst('Apollo');
+  SSL.insertFirst('Boomer');
+  SSL.insertFirst('Helo');
+  SSL.insertFirst('Husker');
+  SSL.insertFirst('Staruck');
   //   SSL.insertLast('Tauhida');
   //   SSL.remove('squirrel');
   //   SSL.insertFirst({ name: 'Bob', zip: 88888 });
-  SSL.insertFirst(['red', 'white', 'blue']);
-  console.log(JSON.stringify(SSL));
+  //SSL.insertFirst(['red', 'white', 'blue']);
+  SSL.insertBefore('Helo', 'Husker');
+  //console.log(JSON.stringify(SSL));
   //   console.log(SSL);
 }
 Main();
