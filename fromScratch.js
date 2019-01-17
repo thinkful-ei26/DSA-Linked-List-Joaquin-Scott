@@ -80,30 +80,29 @@ class LinkedList {
           //console.log("current is ", current, "and current.next is ", current.next);
           return;
         }
+        current = current.next;
       }
     }
   }
 
   insertAfter(item, value) {
-
     let current = this.head;
-
-
-    
-    while(current.next !== null){
-      if (current.next.value === value) {
-        let newNode = new _Node(item, value);
-        console.log(current.next.value, value);
-        console.log("nextNode is ", newNode);
-        newNode.next = current.next;
-        current.next = newNode;
-        console.log("current is ", current, "and current.next is ", current.next);
-        return;
-      }
-    }
+    if(current.next === null){
+      this.insertLast(item);
+    }else{
+      while(current.next !== null){
+        if (current.value === value) {
+          let newNode = new _Node(item, value);
+          // console.log(current.next.value, value);
+          // console.log("nextNode is ", newNode);
+          newNode.next = current.next;
+          current.next = newNode;
+          // console.log("current is ", current, "and current.next is ", current.next);
+          return;
+        }
+        current = current.next;
+      }}
   }
-  //}
-
 }
 
 function Main() {
@@ -117,7 +116,7 @@ function Main() {
   //   SSL.remove('squirrel');
   //   SSL.insertFirst({ name: 'Bob', zip: 88888 });
   //SSL.insertFirst(['red', 'white', 'blue']);
-  SSL.insertAfter('bob', 'Husker');
+  SSL.insertAfter('scott', 'Starbuck');
   console.log(JSON.stringify(SSL));
   //   console.log(SSL);
 }
