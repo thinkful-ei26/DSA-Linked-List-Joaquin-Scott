@@ -1,4 +1,4 @@
-'use strict';
+
 
 class _Node {
   constructor(value, next) {
@@ -66,37 +66,59 @@ class LinkedList {
   }
 
   insertBefore(item, value) {
-    let previous = this.head;
+    // let previous = this.head;
     let current = this.head;
 
-    //this.find(key);
-    console.log(this.find(value));
-
-
-    // if (this.find(key)) {
-    //   this.head = new _Node(item, current);
-    //   previous = current;
-    //   current = current.next;
-    //   console.log(current, previous);
-    //   //console.log("this.head is ", this.head);
-    // }
-
+    if (value === this.head.value){
+      this.insertFirst(item);
+    }else{
+      while(current.next !== null){
+        if (current.next.value === value) {
+          let previous = new _Node(item, value);
+          previous.next = current.next;
+          current.next = previous;
+          //console.log("current is ", current, "and current.next is ", current.next);
+          return;
+        }
+      }
+    }
   }
 
+  insertAfter(item, value) {
+
+    let current = this.head;
+
+
+    
+    while(current.next !== null){
+      if (current.next.value === value) {
+        let newNode = new _Node(item, value);
+        console.log(current.next.value, value);
+        console.log("nextNode is ", newNode);
+        newNode.next = current.next;
+        current.next = newNode;
+        console.log("current is ", current, "and current.next is ", current.next);
+        return;
+      }
+    }
+  }
+  //}
+
 }
+
 function Main() {
   let SSL = new LinkedList();
   SSL.insertFirst('Apollo');
   SSL.insertFirst('Boomer');
   SSL.insertFirst('Helo');
   SSL.insertFirst('Husker');
-  SSL.insertFirst('Staruck');
+  SSL.insertFirst('Starbuck');
   //   SSL.insertLast('Tauhida');
   //   SSL.remove('squirrel');
   //   SSL.insertFirst({ name: 'Bob', zip: 88888 });
   //SSL.insertFirst(['red', 'white', 'blue']);
-  SSL.insertBefore('Helo', 'Husker');
-  //console.log(JSON.stringify(SSL));
+  SSL.insertAfter('bob', 'Husker');
+  console.log(JSON.stringify(SSL));
   //   console.log(SSL);
 }
 Main();
